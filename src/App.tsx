@@ -1,30 +1,54 @@
-import { APITester } from "./APITester";
+import { useEffect, useState } from "react";
 import "./index.css";
 
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+import { StarField }  from "./components/StarField";
+import { Navbar }     from "./components/Navbar";
+import { Hero }       from "./components/Hero";
+import { About }      from "./components/About";
+import { Skills }     from "./components/Skills";
+import { Projects }   from "./components/Projects";
+import { Contact }    from "./components/Contact";
+
+const SECTIONS = ["hero", "about", "skills", "projects", "contact"];
 
 export function App() {
-  return (
-    <div className="max-w-7xl mx-auto p-8 text-center relative z-10">
-      <div className="flex justify-center items-center gap-8 mb-8">
-        <img
-          src={logo}
-          alt="Bun Logo"
-          className="h-24 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#646cffaa] scale-120"
-        />
-        <img
-          src={reactLogo}
-          alt="React Logo"
-          className="h-24 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#61dafbaa] animate-[spin_20s_linear_infinite]"
-        />
-      </div>
+  const [active, setActive] = useState("hero");
 
-      <h1 className="text-5xl font-bold my-4 leading-tight">Bun + React</h1>
-      <p>
-        Edit <code className="bg-[#1a1a1a] px-2 py-1 rounded font-mono">src/App.tsx</code> and save to test HMR
-      </p>
-      <APITester />
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    for (const id of SECTIONS) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div className="scanlines dot-grid relative min-h-screen text-[#e2e8f0]">
+      {/* HUD navigation */}
+      <Navbar active={active} onNav={scrollTo} />
+
+      {/* Sections */}
+      <main style={{ position: "relative", zIndex: 1 }} className="flex flex-col gap-32 pb-32">
+        <section id="hero"><Hero onStart={() => scrollTo("about")} /></section>
+        <section id="about"><About /></section>
+        <section id="skills"><Skills /></section>
+        <section id="projects"><Projects /></section>
+        <section id="contact"><Contact /></section>
+      </main>
     </div>
   );
 }
