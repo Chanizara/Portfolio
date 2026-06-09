@@ -40,7 +40,7 @@ export function Hero({ onStart }: HeroProps) {
         </h1>
 
         <p className="font-['Inter'] text-xl md:text-2xl text-gray-300 tracking-widest" style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.5)" }}>
-          SOFTWARE ENGINEER
+          Frontend & UX/UI Designer
         </p>
 
         <p className="font-['Inter'] text-lg text-gray-400 max-w-xl leading-relaxed mt-4 bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-white/5">
