@@ -36,8 +36,12 @@ export function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const bgStyle = {
+    backgroundImage: `linear-gradient(to bottom, rgba(10, 30, 20, 0.55), rgba(5, 20, 15, 0.75)), url('/public/bg.jpg')`,
+  };
+
   return (
-    <div className="scanlines dot-grid relative min-h-screen text-[#e2e8f0]">
+    <div className="scanlines pixel-art-bg relative min-h-screen text-text" style={bgStyle}>
       {/* HUD navigation */}
       <Navbar active={active} onNav={scrollTo} />
 

@@ -1,21 +1,21 @@
 import React from 'react';
 
 const LINKS = [
-  { label: "GITHUB", value: "github.com/chanizara", href: "https://github.com/chanizara", highlight: "#00f0ff" },
-  { label: "LINKEDIN", value: "linkedin.com/in/chanizara", href: "https://linkedin.com/in/chanizara", highlight: "#8a2be2" },
-  { label: "EMAIL", value: "chanizara@email.com", href: "mailto:chanizara@email.com", highlight: "#ff007f" },
+  { label: "GITHUB", value: "github.com/chanizara", href: "https://github.com/chanizara", highlight: "#ffffff" },
+  { label: "LINKEDIN", value: "linkedin.com/in/chanizara", href: "https://linkedin.com/in/chanizara", highlight: "#dddddd" },
+  { label: "EMAIL", value: "chanizara@email.com", href: "mailto:chanizara@email.com", highlight: "#bbbbbb" },
 ];
 
 export function Contact() {
   return (
-    <div className="min-h-[70vh] py-24 px-4 flex flex-col items-center border-t border-[#321d5c] bg-gradient-to-b from-[#090414] to-[#120824]">
+    <div className="min-h-[70vh] py-24 px-4 flex flex-col items-center border-t border-white/5 bg-black/80 backdrop-blur-xl">
       <div className="w-full max-w-5xl flex flex-col md:flex-row gap-16 justify-between items-center">
         
         <div className="flex-1">
-          <h2 className="font-['Press_Start_2P'] text-2xl md:text-4xl text-white mb-6">
-            INITIATE <br/>CONNECTION
+          <h2 className="font-['Inter'] font-bold text-3xl md:text-5xl text-white mb-6">
+            Let's Connect
           </h2>
-          <p className="font-['VT323'] text-2xl text-gray-400 max-w-sm leading-relaxed">
+          <p className="font-['Inter'] text-lg text-gray-400 max-w-sm leading-relaxed">
             Ready to start a new project or just want to say hi? My inbox is always open.
           </p>
         </div>

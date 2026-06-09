@@ -1,26 +1,26 @@
 import React from 'react';
 
 const PROJECTS = [
-  { id: "01", title: "PORTFOLIO", status: "ONLINE", tech: "React / TS", year: "2024", highlight: "#00f0ff" },
-  { id: "02", title: "E-COMMERCE", status: "ARCHIVED", tech: "Next.js / Node", year: "2023", highlight: "#ff007f" },
-  { id: "03", title: "DATALINK API", status: "ONLINE", tech: "Python / FastAPI", year: "2023", highlight: "#8a2be2" },
+  { id: "01", title: "PORTFOLIO", status: "ONLINE", tech: "React / TS", year: "2024", highlight: "#e0e0e0" },
+  { id: "02", title: "E-COMMERCE", status: "ARCHIVED", tech: "Next.js / Node", year: "2023", highlight: "#aaaaaa" },
+  { id: "03", title: "DATALINK API", status: "ONLINE", tech: "Python / FastAPI", year: "2023", highlight: "#cccccc" },
 ];
 
 export function Projects() {
   return (
     <div className="min-h-screen py-24 px-4 flex flex-col items-center">
       <div className="flex items-center gap-4 mb-16 w-full max-w-5xl">
-        <h2 className="font-['Press_Start_2P'] text-xl md:text-2xl text-[#8a2be2] opacity-90 tracking-widest">
-          &gt; MISSIONS
+        <h2 className="font-['Inter'] font-semibold text-lg md:text-xl text-white tracking-[0.3em]">
+          PROJECTS
         </h2>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-[#8a2be2] to-transparent opacity-30" />
+        <div className="flex-1 h-[1px] bg-gradient-to-r from-white/20 to-transparent" />
       </div>
 
-      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 font-['VT323']">
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 font-['Inter']">
         {PROJECTS.map(p => (
           <div key={p.id} className="pixel-panel p-6 group cursor-pointer">
             <div className="flex justify-between items-start mb-6">
-              <span className="text-4xl text-gray-500 group-hover:text-white transition-colors">
+              <span className="text-4xl font-bold text-gray-500 group-hover:text-white transition-colors">
                 {p.id}
               </span>
               <span className="text-sm px-2 py-1 border" style={{ color: p.highlight, borderColor: p.highlight }}>

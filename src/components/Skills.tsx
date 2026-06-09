@@ -1,25 +1,25 @@
 import React from 'react';
 
 const TECH_STACK = [
-  { name: "TypeScript", color: "#00f0ff" },
-  { name: "React", color: "#00f0ff" },
-  { name: "Next.js", color: "#e2e8f0" },
-  { name: "Node.js", color: "#ff007f" },
-  { name: "Python", color: "#ff007f" },
-  { name: "PostgreSQL", color: "#8a2be2" },
-  { name: "TailwindCSS", color: "#00f0ff" },
-  { name: "Docker", color: "#8a2be2" },
-  { name: "AWS", color: "#e2e8f0" },
+  { name: "TypeScript", color: "#e0e0e0" },
+  { name: "React", color: "#cccccc" },
+  { name: "Next.js", color: "#ffffff" },
+  { name: "Node.js", color: "#aaaaaa" },
+  { name: "Python", color: "#999999" },
+  { name: "PostgreSQL", color: "#bbbbbb" },
+  { name: "TailwindCSS", color: "#dddddd" },
+  { name: "Docker", color: "#eeeeee" },
+  { name: "AWS", color: "#ffffff" },
 ];
 
 export function Skills() {
   return (
     <div className="min-h-screen py-24 px-4 flex flex-col items-center">
       <div className="flex items-center gap-4 mb-16 w-full max-w-5xl">
-        <h2 className="font-['Press_Start_2P'] text-xl md:text-2xl text-[#ff007f] opacity-90 tracking-widest">
-          &gt; TECH_STACK
+        <h2 className="font-['Inter'] font-semibold text-lg md:text-xl text-white tracking-[0.3em]">
+          TECH STACK
         </h2>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-[#ff007f] to-transparent opacity-30" />
+        <div className="flex-1 h-[1px] bg-gradient-to-r from-white/20 to-transparent" />
       </div>
 
       <div className="w-full max-w-5xl">

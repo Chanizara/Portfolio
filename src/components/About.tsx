@@ -1,28 +1,28 @@
 import React from 'react';
 
 const STATS = [
-  { label: "FRONTEND", val: 95, color: "#ff007f" },
-  { label: "BACKEND", val: 85, color: "#00f0ff" },
-  { label: "ARCHITECTURE", val: 80, color: "#8a2be2" },
+  { label: "FRONTEND", val: 95, color: "#e0e0e0" },
+  { label: "BACKEND", val: 85, color: "#cccccc" },
+  { label: "ARCHITECTURE", val: 80, color: "#aaaaaa" },
 ];
 
 export function About() {
   return (
     <div className="min-h-screen py-24 px-4 flex flex-col justify-center items-center">
       <div className="flex items-center gap-4 mb-16 w-full max-w-5xl">
-        <h2 className="font-['Press_Start_2P'] text-xl md:text-2xl text-[#00f0ff] opacity-90 tracking-widest">
-          &gt; PROFILE_DATA
+        <h2 className="font-['Inter'] font-semibold text-lg md:text-xl text-white tracking-[0.3em]">
+          PROFILE
         </h2>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-[#00f0ff] to-transparent opacity-30" />
+        <div className="flex-1 h-[1px] bg-gradient-to-r from-white/20 to-transparent" />
       </div>
       
-      <div className="pixel-panel p-8 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 text-gray-300 font-['VT323']">
+      <div className="pixel-panel p-8 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 text-gray-300 font-['Inter']">
         
         {/* Left Column */}
         <div className="lg:col-span-8 flex flex-col gap-6">
-          <h3 className="text-3xl text-white mb-2 tracking-wide font-['Press_Start_2P'] text-glow-pink">CHANIZARA</h3>
+          <h3 className="text-3xl text-white mb-2 font-bold tracking-wide">CHANIZARA</h3>
           
-          <div className="bg-[#05020a] border border-[#321d5c] p-6 text-xl leading-relaxed">
+          <div className="bg-white/5 border border-white/10 rounded-lg p-6 text-base leading-relaxed">
             <p className="mb-4">
               Passionate Software Engineer specialized in building robust and scalable web applications. 
               My expertise lies in TypeScript, React, and Node.js ecosystems.
