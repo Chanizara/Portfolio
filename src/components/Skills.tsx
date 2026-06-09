@@ -19,7 +19,7 @@ export function Skills() {
         <h2 className="font-['Inter'] font-semibold text-lg md:text-xl text-white tracking-[0.3em]">
           TECH STACK
         </h2>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-white/20 to-transparent" />
+        <div className="flex-1 h-px bg-linear-to-r from-white/20 to-white/0" />
       </div>
 
       <div className="w-full max-w-5xl">

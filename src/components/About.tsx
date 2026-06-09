@@ -11,9 +11,9 @@ export function About() {
     <div className="min-h-screen py-24 px-4 flex flex-col justify-center items-center">
       <div className="flex items-center gap-4 mb-16 w-full max-w-5xl">
         <h2 className="font-['Inter'] font-semibold text-lg md:text-xl text-white tracking-[0.3em]">
-          PROFILE
+          ABOUT ME
         </h2>
-        <div className="flex-1 h-[1px] bg-gradient-to-r from-white/20 to-transparent" />
+        <div className="flex-1 h-px bg-linear-to-r from-white/20 to-white/0" />
       </div>
       
       <div className="pixel-panel p-8 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 text-gray-300 font-['Inter']">

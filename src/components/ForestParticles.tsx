@@ -14,14 +14,14 @@ function removeWhiteBg(img: HTMLImageElement): HTMLCanvasElement {
   const d = id.data;
 
   for (let i = 0; i < d.length; i += 4) {
-    const r = d[i], g = d[i + 1], b = d[i + 2];
+    const r = d[i]!, g = d[i + 1]!, b = d[i + 2]!;
     // Hard-transparent: very close to white
     if (r > 238 && g > 238 && b > 238) {
       d[i + 3] = 0;
     // Soft edge: semi-transparent near-white pixels
     } else if (r > 210 && g > 210 && b > 210) {
       const t = (Math.min(r, g, b) - 210) / 28;
-      d[i + 3] = Math.round(d[i + 3] * (1 - t));
+      d[i + 3] = Math.round(d[i + 3]! * (1 - t));
     }
   }
 
@@ -76,10 +76,20 @@ function spawnMote(W: number, H: number): Mote {
   };
 }
 
-export function ForestParticles() {
+const MOTE_COLORS: Record<"day" | "evening", { outer: string; mid: string; inner: string }> = {
+  day:     { outer: "#80e860", mid: "#a8ff78", inner: "#d8ffb0" },
+  evening: { outer: "#e08020", mid: "#ffaa44", inner: "#ffe0a0" },
+};
+
+interface ForestParticlesProps {
+  timeOfDay: "day" | "evening";
+}
+
+export function ForestParticles({ timeOfDay }: ForestParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const moteColor = MOTE_COLORS[timeOfDay];
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -125,7 +135,7 @@ export function ForestParticles() {
 
       // ── update leaves ───────────────────────────────────────────────
       for (let i = leaves.length - 1; i >= 0; i--) {
-        const l = leaves[i];
+        const l = leaves[i]!;
         l.windPhase += 0.013;
         // gentle horizontal sway + slight rightward drift (breeze)
         l.x += l.vx + Math.sin(l.windPhase) * 0.48;
@@ -155,13 +165,13 @@ export function ForestParticles() {
       for (const m of motes) {
         ctx.save();
         ctx.globalAlpha = m.alpha * 0.22;
-        ctx.fillStyle = "#80e860";
+        ctx.fillStyle = moteColor.outer;
         ctx.fillRect(m.x - 5, m.y - 5, 10, 10);
         ctx.globalAlpha = m.alpha * 0.5;
-        ctx.fillStyle = "#a8ff78";
+        ctx.fillStyle = moteColor.mid;
         ctx.fillRect(m.x - 2, m.y - 2, 5, 5);
         ctx.globalAlpha = m.alpha;
-        ctx.fillStyle = "#d8ffb0";
+        ctx.fillStyle = moteColor.inner;
         ctx.fillRect(m.x - 1, m.y - 1, 3, 3);
         ctx.restore();
       }
