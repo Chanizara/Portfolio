@@ -23,33 +23,21 @@ export function Navbar({ active, onNav }: NavbarProps) {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 font-['Inter'] font-medium ${
-        scrolled ? "bg-black/60 backdrop-blur-xl py-4 shadow-lg border-b border-white/5" : "bg-transparent py-6"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-4">
-        
-        <div className="text-white text-xs tracking-[0.2em] opacity-60">
-          SYS.v2.0.4
-        </div>
-
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm tracking-widest">
-          {NAV.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => onNav(item.id)}
-              className={`transition-all duration-200 ${
-                active === item.id 
-                  ? "text-white" 
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
-            >
-              {item.label.replace("// ", "")}
-            </button>
-          ))}
-        </div>
-
+    <nav className="fixed top-5 left-0 w-full z-50 flex justify-center font-['Inter'] font-medium">
+      <div className="flex items-center gap-1 px-2 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-lg">
+        {NAV.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => onNav(item.id)}
+            className={`px-5 py-2 rounded-full text-sm tracking-widest transition-all duration-200 ${
+              active === item.id
+                ? "bg-white/20 text-white shadow-sm"
+                : "text-white/50 hover:text-white/80"
+            }`}
+          >
+            {item.label.replace("// ", "")}
+          </button>
+        ))}
       </div>
     </nav>
   );

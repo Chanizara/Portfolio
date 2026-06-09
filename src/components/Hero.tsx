@@ -47,14 +47,8 @@ export function Hero({ onStart }: HeroProps) {
       />
       
       <div className="z-10 flex flex-col items-center gap-8">
-        <div className="flex items-center gap-4 text-white font-['Press_Start_2P'] text-[10px] tracking-widest opacity-70">
-          <div className="w-8 h-[1px] bg-white" />
-          <span>HI, IT’S ME!</span>
-          <div className="w-8 h-[1px] bg-white" />
-        </div>
-
         <h1 
-          className={`font-['Inter'] font-bold text-5xl md:text-7xl text-white tracking-widest ${glitch ? 'opacity-80 translate-x-1' : ''}`}
+          className={`font-['Inter'] font-bold text-7xl md:text-8xl text-white tracking-widest ${glitch ? 'opacity-80 translate-x-1' : ''}`}
           style={{ textShadow: "0 4px 12px rgba(0, 0, 0, 0.4)" }}
         >
           CHANIZARA
@@ -63,10 +57,6 @@ export function Hero({ onStart }: HeroProps) {
         <p className="font-['Inter'] text-xl md:text-2xl text-gray-300 tracking-widest" style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.5)" }}>
           {typed}
           <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
-        </p>
-
-        <p className="font-['Inter'] text-lg text-gray-400 max-w-xl leading-relaxed mt-4 bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-white/5">
-          Forging scalable web applications and digital experiences with precision and creativity.
         </p>
 
         <div className="mt-8">
