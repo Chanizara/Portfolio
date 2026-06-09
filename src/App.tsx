@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 
-import { StarField }  from "./components/StarField";
+import { ForestParticles } from "./components/ForestParticles";
 import { Navbar }     from "./components/Navbar";
 import { Hero }       from "./components/Hero";
 import { About }      from "./components/About";
@@ -42,6 +42,7 @@ export function App() {
 
   return (
     <div className="scanlines pixel-art-bg relative min-h-screen text-text" style={bgStyle}>
+      <ForestParticles />
       {/* HUD navigation */}
       <Navbar active={active} onNav={scrollTo} />
 

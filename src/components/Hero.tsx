@@ -4,8 +4,29 @@ interface HeroProps {
   onStart: () => void;
 }
 
+const TYPEWRITER_TEXT = "Frontend Developer & UX/UI Designer";
+
 export function Hero({ onStart }: HeroProps) {
   const [glitch, setGlitch] = useState(false);
+  const [typed, setTyped] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  // Typewriter loop: type → pause 3s → clear → type again
+  useEffect(() => {
+    if (typed.length < TYPEWRITER_TEXT.length) {
+      const t = setTimeout(() => setTyped(TYPEWRITER_TEXT.slice(0, typed.length + 1)), 150);
+      return () => clearTimeout(t);
+    }
+    // Finished typing — wait 3s then reset to empty
+    const t = setTimeout(() => setTyped(""), 3000);
+    return () => clearTimeout(t);
+  }, [typed]);
+
+  // Blinking cursor always on
+  useEffect(() => {
+    const t = setInterval(() => setShowCursor(v => !v), 530);
+    return () => clearInterval(t);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +49,7 @@ export function Hero({ onStart }: HeroProps) {
       <div className="z-10 flex flex-col items-center gap-8">
         <div className="flex items-center gap-4 text-white font-['Press_Start_2P'] text-[10px] tracking-widest opacity-70">
           <div className="w-8 h-[1px] bg-white" />
-          <span>SYSTEM.INITIALIZED</span>
+          <span>HI, IT’S ME!</span>
           <div className="w-8 h-[1px] bg-white" />
         </div>
 
@@ -40,7 +61,8 @@ export function Hero({ onStart }: HeroProps) {
         </h1>
 
         <p className="font-['Inter'] text-xl md:text-2xl text-gray-300 tracking-widest" style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.5)" }}>
-          Frontend & UX/UI Designer
+          {typed}
+          <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
         </p>
 
         <p className="font-['Inter'] text-lg text-gray-400 max-w-xl leading-relaxed mt-4 bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-white/5">
