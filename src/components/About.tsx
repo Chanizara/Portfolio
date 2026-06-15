@@ -1,8 +1,23 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export function About() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { setVisible(entry?.isIntersecting ?? false); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen py-24 px-4 flex flex-col justify-center items-center">
+    <div
+      ref={sectionRef}
+      className={`min-h-screen py-24 px-4 flex flex-col justify-center items-center transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+    >
       <div className="flex items-center gap-4 mb-16 w-full max-w-5xl">
         <h2 className="font-['Inter'] font-semibold text-lg md:text-xl text-white tracking-[0.3em]">
           ABOUT ME
@@ -68,8 +83,8 @@ export function About() {
           <div className="flex justify-end">
             <div className="bg-[rgba(10,20,15,0.7)] border border-[rgba(100,200,130,0.12)] rounded-3xl p-7 flex flex-col gap-4 w-3/7">
               <div className="flex items-center gap-3">
-                <div className="w-16 h-16 rounded-lg bg-[rgba(20,35,25,0.9)] border border-[rgba(100,200,130,0.15)] flex items-center justify-center shrink-0">
-                  <span className="text-2xl">🏢</span>
+                <div className="w-16 h-16 rounded-lg bg-[rgba(20,35,25,0.9)] border border-[rgba(100,200,130,0.15)] flex items-center justify-center shrink-0 overflow-hidden">
+                  <img src="/public/logo-cosi.png" alt="CoSI" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-white font-semibold text-[20px] mt-0.5">Frontend Developer</p>
