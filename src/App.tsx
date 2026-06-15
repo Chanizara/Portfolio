@@ -6,7 +6,6 @@ import { StarField }       from "./components/StarField";
 import { Navbar }     from "./components/Navbar";
 import { Hero }       from "./components/Hero";
 import { About }      from "./components/About";
-import { Skills }     from "./components/Skills";
 import { Projects }   from "./components/Projects";
 import { Contact }    from "./components/Contact";
 
@@ -34,11 +33,11 @@ const BG_CONFIG: Record<TimeOfDay, { image: string; overlay: string }> = {
   },
 };
 
-const SECTIONS = ["hero", "about", "skills", "projects", "contact"];
+const SECTIONS = ["hero", "about", "projects", "contact"];
 
 export function App() {
   const [active, setActive] = useState("hero");
-  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>(getTimeOfDay);
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("day");
 
   useEffect(() => {
     const id = setInterval(() => setTimeOfDay(getTimeOfDay()), 60_000);
@@ -80,9 +79,8 @@ export function App() {
 
       {/* Sections */}
       <main style={{ position: "relative", zIndex: 1 }} className="flex flex-col gap-32 pb-32">
-        <section id="hero"><Hero onStart={() => scrollTo("about")} /></section>
+        <section id="hero"><Hero onStart={() => scrollTo("projects")} /></section>
         <section id="about"><About /></section>
-        <section id="skills"><Skills /></section>
         <section id="projects"><Projects /></section>
         <section id="contact"><Contact /></section>
       </main>

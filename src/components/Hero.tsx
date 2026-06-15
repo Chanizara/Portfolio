@@ -59,9 +59,13 @@ export function Hero({ onStart }: HeroProps) {
           <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>
         </p>
 
-        <div className="mt-8">
+        <div className="mt-5 flex gap-4">
           <button onClick={onStart} className="pixel-button">
-            BEGIN SEQUENCE
+            VIEW PROJECTS
+          </button>
+          <button className="pixel-button inline-flex items-center gap-2">
+            <img src="/public/icon-Download.png" alt="" className="w-5 h-5" />
+            DOWNLOAD CV
           </button>
         </div>
       </div>

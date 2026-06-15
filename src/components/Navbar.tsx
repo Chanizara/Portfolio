@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { id: "hero", label: "// INTRO" },
-  { id: "about", label: "// PROFILE" },
-  { id: "skills", label: "// TECH" },
-  { id: "projects", label: "// MISSIONS" },
-  { id: "contact", label: "// NETWORK" },
+  { id: "hero", label: "// HOME" },
+  { id: "about", label: "// ABOUT" },
+  { id: "projects", label: "// PROJECT" },
+  { id: "projects", label: "// CERTIFICATIONS" },
+  { id: "contact", label: "// CONTACT" },
 ];
 
 interface NavbarProps {
