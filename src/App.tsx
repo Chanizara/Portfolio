@@ -6,8 +6,9 @@ import { StarField }       from "./components/StarField";
 import { Navbar }     from "./components/Navbar";
 import { Hero }       from "./components/Hero";
 import { About }      from "./components/About";
-import { Projects }   from "./components/Projects";
-import { Contact }    from "./components/Contact";
+import { Projects }        from "./components/Projects";
+import { Certifications }  from "./components/Certifications";
+import { Contact }         from "./components/Contact";
 
 type TimeOfDay = "day" | "evening" | "night";
 
@@ -33,7 +34,7 @@ const BG_CONFIG: Record<TimeOfDay, { image: string; overlay: string }> = {
   },
 };
 
-const SECTIONS = ["hero", "about", "projects", "contact"];
+const SECTIONS = ["hero", "about", "projects", "certifications", "contact"];
 
 export function App() {
   const [active, setActive] = useState("hero");
@@ -82,6 +83,7 @@ export function App() {
         <section id="hero"><Hero onStart={() => scrollTo("projects")} /></section>
         <section id="about"><About /></section>
         <section id="projects"><Projects /></section>
+        <section id="certifications"><Certifications /></section>
         <section id="contact"><Contact /></section>
       </main>
     </div>

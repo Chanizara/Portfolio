@@ -1,4 +1,17 @@
 import React from 'react';
+import { FaReact, FaNodeJs, FaPython } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss, SiVite, SiNextdotjs, SiFastapi } from 'react-icons/si';
+
+const techIcons: Record<string, React.ReactNode> = {
+  'React': <FaReact className="text-[#61DAFB]" />,
+  'TypeScript': <SiTypescript className="text-[#3178C6]" />,
+  'Tailwind CSS': <SiTailwindcss className="text-[#38BDF8]" />,
+  'Vite': <SiVite className="text-[#646CFF]" />,
+  'Next.js': <SiNextdotjs className="text-white" />,
+  'Node.js': <FaNodeJs className="text-[#68A063]" />,
+  'Python': <FaPython className="text-[#3776AB]" />,
+  'FastAPI': <SiFastapi className="text-[#009688]" />,
+};
 
 interface Project {
   title: string;
@@ -12,19 +25,10 @@ const projects: Project[] = [
   {
     title: 'Tastesiam Website',
     date: '???, 2026',
-    tech: ['React', 'TypeScript', 'Tailwind CSS'],
-    image: '/projects/voting-system.png',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite' ],
+    image: 'public/Tasatesiam.png',
   },
-  {
-    title: '???',
-    date: '???',
-    tech: [''],
-  },
-  {
-    title: '???',
-    date: '???',
-    tech: [''],
-  },
+  
 ];
 
 function timeAgo(dateStr: string): string {
@@ -41,7 +45,12 @@ function timeAgo(dateStr: string): string {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="pixel-panel p-6 flex flex-col gap-5 group cursor-pointer">
+    <div className="relative group cursor-pointer">
+      {/* Back card - shows on hover */}
+      <div className="absolute inset-0 pixel-panel opacity-0 group-hover:opacity-100 group-hover:-rotate-6 group-hover:-translate-x-3 transition-all duration-300 pointer-events-none" />
+
+      {/* Front card */}
+    <div className="pixel-panel p-6 flex flex-col gap-5 relative">
       {/* Header */}
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-1">
@@ -65,8 +74,9 @@ function ProjectCard({ project }: { project: Project }) {
         {project.tech.map((t) => (
           <span
             key={t}
-            className="text-xs font-['Inter'] text-white/80 bg-white/8 border border-white/12 rounded-full px-3 py-1"
+            className="flex items-center gap-1.5 text-xs font-['Inter'] text-white/80 bg-white/8 border border-white/12 rounded-full px-3 py-1"
           >
+            {techIcons[t] && <span className="text-sm">{techIcons[t]}</span>}
             {t}
           </span>
         ))}
@@ -78,10 +88,11 @@ function ProjectCard({ project }: { project: Project }) {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full object-cover max-h-52"
+            className="w-full object-cover max-h-52 blur-[5px]"
           />
         </div>
       )}
+    </div>
     </div>
   );
 }

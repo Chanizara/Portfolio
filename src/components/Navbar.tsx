@@ -4,7 +4,7 @@ const NAV = [
   { id: "hero", label: "// HOME" },
   { id: "about", label: "// ABOUT" },
   { id: "projects", label: "// PROJECT" },
-  { id: "projects", label: "// CERTIFICATIONS" },
+  { id: "certifications", label: "// CERTIFICATIONS" },
   { id: "contact", label: "// CONTACT" },
 ];
 
