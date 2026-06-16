@@ -24,7 +24,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'Tastesiam Website',
-    date: '???, 2026',
+    date: 'February 10, 2026',
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite' ],
     image: 'public/Tasatesiam.png',
   },

@@ -79,12 +79,12 @@ export function App() {
       <Navbar active={active} onNav={scrollTo} />
 
       {/* Sections */}
-      <main style={{ position: "relative", zIndex: 1 }} className="flex flex-col gap-32 pb-32">
+      <main style={{ position: "relative", zIndex: 1 }} className="flex flex-col gap-32">
         <section id="hero"><Hero onStart={() => scrollTo("projects")} /></section>
         <section id="about"><About /></section>
         <section id="projects"><Projects /></section>
         <section id="certifications"><Certifications /></section>
-        <section id="contact"><Contact /></section>
+        <section id="contact"><Contact timeOfDay={timeOfDay} /></section>
       </main>
     </div>
   );
